@@ -1,0 +1,92 @@
+[
+  {
+    "id": 0,
+    "dataset_index": 3648,
+    "image_path": "assets/samples/sample_00000.png",
+    "label": "0",
+    "width": 100,
+    "height": 100,
+    "meta": {}
+  },
+  {
+    "id": 1,
+    "dataset_index": 819,
+    "image_path": "assets/samples/sample_00001.png",
+    "label": "0",
+    "width": 100,
+    "height": 100,
+    "meta": {}
+  },
+  {
+    "id": 2,
+    "dataset_index": 9012,
+    "image_path": "assets/samples/sample_00002.png",
+    "label": "1",
+    "width": 100,
+    "height": 100,
+    "meta": {}
+  },
+  {
+    "id": 3,
+    "dataset_index": 8024,
+    "image_path": "assets/samples/sample_00003.png",
+    "label": "0",
+    "width": 100,
+    "height": 100,
+    "meta": {}
+  },
+  {
+    "id": 4,
+    "dataset_index": 7314,
+    "image_path": "assets/samples/sample_00004.png",
+    "label": "0",
+    "width": 100,
+    "height": 100,
+    "meta": {}
+  },
+  {
+    "id": 5,
+    "dataset_index": 4572,
+    "image_path": "assets/samples/sample_00005.png",
+    "label": "0",
+    "width": 100,
+    "height": 100,
+    "meta": {}
+  },
+  {
+    "id": 6,
+    "dataset_index": 3358,
+    "image_path": "assets/samples/sample_00006.png",
+    "label": "0",
+    "width": 100,
+    "height": 100,
+    "meta": {}
+  },
+  {
+    "id": 7,
+    "dataset_index": 2848,
+    "image_path": "assets/samples/sample_00007.png",
+    "label": "0",
+    "width": 100,
+    "height": 100,
+    "meta": {}
+  },
+  {
+    "id": 8,
+    "dataset_index": 13825,
+    "image_path": "assets/samples/sample_00008.png",
+    "label": "0",
+    "width": 100,
+    "height": 100,
+    "meta": {}
+  },
+  {
+    "id": 9,
+    "dataset_index": 1041,
+    "image_path": "assets/samples/sample_00009.png",
+    "label": "0",
+    "width": 100,
+    "height": 100,
+    "meta": {}
+  }
+]

@@ -1,0 +1,22 @@
+{
+  "num_exported_samples": 10,
+  "dataset_length": 17080,
+  "label_counts": {
+    "0": 9,
+    "1": 1
+  },
+  "width": {
+    "min": 100,
+    "max": 100,
+    "mean": 100.0
+  },
+  "height": {
+    "min": 100,
+    "max": 100,
+    "mean": 100.0
+  },
+  "plots": {
+    "class_counts": "assets/plots/class_counts.png",
+    "width_height": "assets/plots/width_height.png"
+  }
+}
