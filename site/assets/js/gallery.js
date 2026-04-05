@@ -2,7 +2,8 @@ async function loadGallery() {
   const grid = document.getElementById("gallery-grid");
   const search = document.getElementById("gallery-search");
 
-  const res = await fetch(`${window.location.pathname.includes('/gallery') ? '..' : '.'}/assets/data/samples.json`);
+  const base = (typeof SITE_BASEURL !== "undefined" && SITE_BASEURL) ? SITE_BASEURL : "";
+  const res = await fetch(`${base}/data/samples.json`);
   const items = await res.json();
 
   function render(filter = "") {
@@ -19,7 +20,7 @@ async function loadGallery() {
         const card = document.createElement("article");
         card.className = "sample-card";
         card.innerHTML = `
-          <img src="${item.thumb || item.image}" alt="${item.id}">
+          <img src="${base}/${item.image_path || item.thumb || item.image}" alt="${item.id}">
           <div class="sample-meta">
             <h3>${item.id}</h3>
             <p><strong>Label:</strong> ${item.label}</p>

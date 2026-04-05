@@ -8,5 +8,5 @@ description: Summary plots and dataset statistics.
 
 Add your generated plots here:
 
-![Class balance]({{ '/assets/images/eda/class_balance.png' | relative_url }})
-![Example montage]({{ '/assets/images/eda/sample_montage.png' | relative_url }})
+![Class counts]({{ '/assets/plots/class_counts.png' | relative_url }})
+![Width vs Height]({{ '/assets/plots/width_height.png' | relative_url }})
