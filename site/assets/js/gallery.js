@@ -19,8 +19,11 @@ async function loadGallery() {
       .forEach(item => {
         const card = document.createElement("article");
         card.className = "sample-card";
+        const imgSrc = item.image_path
+          ? base + "/" + item.image_path.replace(/^\//, "")
+          : (item.thumb || item.image || "");
         card.innerHTML = `
-          <img src="${base}/${item.image_path || item.thumb || item.image}" alt="${item.id}">
+          <img src="${imgSrc}" alt="${item.id}">
           <div class="sample-meta">
             <h3>${item.id}</h3>
             <p><strong>Label:</strong> ${item.label}</p>
