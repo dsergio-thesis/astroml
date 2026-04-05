@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dataset Demo - Gallery</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>Gallery</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="eda.html">EDA</a>
+      <a href="gallery.html">Gallery</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="card controls">
+      <label>
+        Label
+        <select id="label-filter">
+          <option value="">All</option>
+        </select>
+      </label>
+
+      <label>
+        Search metadata
+        <input id="meta-search" type="text" placeholder="Type to filter...">
+      </label>
+    </section>
+
+    <section id="gallery-grid" class="gallery-grid"></section>
+  </main>
+
+  <script src="app.js"></script>
+  <script>
+    loadGallery();
+  </script>
+</body>
+</html>

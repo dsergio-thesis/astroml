@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dataset Demo</title>
+  <title>Dataset Demo - Sample</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="site-header">
-    <h1>Dataset Demo</h1>
+    <h1>Sample Viewer</h1>
     <nav>
       <a href="index.html">Home</a>
       <a href="eda.html">EDA</a>
@@ -18,26 +18,18 @@
 
   <main class="container">
     <section class="card">
-      <h2>Overview</h2>
-      <p>Static demo site generated from a PyTorch dataset.</p>
-      <div id="overview"></div>
-    </section>
+      <div class="sample-nav">
+        <button id="prev-btn">Previous</button>
+        <button id="next-btn">Next</button>
+      </div>
 
-    <section class="grid-2">
-      <a class="card link-card" href="eda.html">
-        <h3>EDA</h3>
-        <p>Summary stats and exported plots.</p>
-      </a>
-      <a class="card link-card" href="gallery.html">
-        <h3>Gallery</h3>
-        <p>Browse exported samples with filters.</p>
-      </a>
+      <div id="sample-view"></div>
     </section>
   </main>
 
   <script src="app.js"></script>
   <script>
-    <!--loadOverview();-->
+    loadSamplePage();
   </script>
 </body>
 </html>
