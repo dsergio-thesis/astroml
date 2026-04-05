@@ -1,0 +1,12 @@
+# Jekyll build output
+site/_site/
+
+# Bundler / Ruby
+.bundle/
+vendor/bundle/
+
+# OS junk
+.DS_Store
+
+# Logs
+*.log

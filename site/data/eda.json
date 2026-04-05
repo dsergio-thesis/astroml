@@ -6,14 +6,14 @@
     "1": 1
   },
   "width": {
-    "min": 100,
-    "max": 100,
-    "mean": 100.0
+    "min": null,
+    "max": null,
+    "mean": null
   },
   "height": {
-    "min": 100,
-    "max": 100,
-    "mean": 100.0
+    "min": null,
+    "max": null,
+    "mean": null
   },
   "plots": {
     "class_counts": "assets/plots/class_counts.png",
