@@ -1,0 +1,36 @@
+async function loadGallery() {
+  const grid = document.getElementById("gallery-grid");
+  const search = document.getElementById("gallery-search");
+
+  const res = await fetch(`${window.location.pathname.includes('/gallery') ? '..' : '.'}/assets/data/samples.json`);
+  const items = await res.json();
+
+  function render(filter = "") {
+    const q = filter.trim().toLowerCase();
+    grid.innerHTML = "";
+
+    items
+      .filter(item =>
+        !q ||
+        String(item.id).toLowerCase().includes(q) ||
+        String(item.label).toLowerCase().includes(q)
+      )
+      .forEach(item => {
+        const card = document.createElement("article");
+        card.className = "sample-card";
+        card.innerHTML = `
+          <img src="${item.thumb || item.image}" alt="${item.id}">
+          <div class="sample-meta">
+            <h3>${item.id}</h3>
+            <p><strong>Label:</strong> ${item.label}</p>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+  }
+
+  search?.addEventListener("input", e => render(e.target.value));
+  render();
+}
+
+loadGallery();

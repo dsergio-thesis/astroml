@@ -1,6 +1,6 @@
-title: Dataset Demo
-description: Visualization demo
+title: AstroML Demo
+description: Dataset visualization demo
 baseurl: "/astroml"
-url: "https://dsergio-thesis.github.io/astroml/"
-
+url: "https://dsergio-thesis.github.io"
+markdown: kramdown
 theme: minima
