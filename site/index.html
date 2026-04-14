@@ -1,84 +1,535 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dataset Demo</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-<header class="site-header">
-  <div class="title-group">
-    <h1>Dataset Explorer</h1>
-    <p class="subtitle">
-      Provenance-Aware Machine Learning Pipelines for Large Astronomical Surveys
-    </p>
-  </div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dataset Demo</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header class="site-header">
+            <div class="title-group">
+                <h1>Dataset Explorer</h1>
+                <p class="subtitle">
+                Provenance-Aware Machine Learning Pipelines for Large Astronomical Surveys
+                </p>
+            </div>
 
-  <button class="menu-toggle" aria-label="Open navigation menu" aria-expanded="false">
-    &#9776;
-  </button>
+            <button class="menu-toggle" aria-label="Open navigation menu" aria-expanded="false">
+                &#9776;
+            </button>
 
-  <nav class="site-nav">
-    <a href="index.html">Home</a>
-    <a href="lsst_eda.html">LSST Summary</a>
-    <a href="lsst_gallery.html">LSST Gallery</a>
-    <a href="hst_eda.html">HST Summary</a>
-  </nav>
-</header>
+            <nav class="site-nav">
+                <a href="index.html">Home</a>
+                <a href="lsst_eda.html">LSST Summary</a>
+                <a href="lsst_gallery.html">LSST Gallery</a>
+                <a href="hst_eda.html">HST Summary</a>
+            </nav>
+        </header>
 
-<script>
-  const toggle = document.querySelector(".menu-toggle");
-  const nav = document.querySelector(".site-nav");
+        <script>
+            const toggle = document.querySelector(".menu-toggle");
+            const nav = document.querySelector(".site-nav");
 
-  toggle.addEventListener("click", () => {
-    nav.classList.toggle("open");
-    const expanded = nav.classList.contains("open");
-    toggle.setAttribute("aria-expanded", expanded);
-  });
-</script>  
+            toggle.addEventListener("click", () => {
+                nav.classList.toggle("open");
+                const expanded = nav.classList.contains("open");
+                toggle.setAttribute("aria-expanded", expanded);
+            });
+        </script>  
 
-<main class="container">
+        <main class="container">
 
-    <section class="grid-2">
-      <a class="card link-card" href="lsst_eda.html">
-        <h3>LSST Dataset</h3>
-        <p>View summary stats and exploratory data analysis for the Legacy Survey of Space and Time (LSST).</p>
-      </a>
-      <a class="card link-card" href="lsst_gallery.html">
-        <h3>LSST Gallery</h3>
-        <p>Browse samples.</p>
-      </a>
+            <section class="grid-2">
+                <a class="card link-card" href="lsst_eda.html">
+                    <h3>LSST Dataset</h3>
+                    <p>View summary stats and exploratory data analysis for the Legacy Survey of Space and Time (LSST).</p>
+                </a>
+                <a class="card link-card" href="lsst_gallery.html">
+                    <h3>LSST Gallery</h3>
+                    <p>Browse samples.</p>
+                </a>
 
-      <a class="card link-card" href="hst_eda.html">
-        <h3>HST Dataset</h3>
-        <p>View summary stats and exploratory data analysis for the 3D-HST Hubble Space Telescope survey.</p>
-      </a>
-    </section>
+                <a class="card link-card" href="hst_eda.html">
+                    <h3>HST Dataset</h3>
+                    <p>View summary stats and exploratory data analysis for the 3D-HST Hubble Space Telescope survey.</p>
+                </a>
+            </section>
 
 
-    <section class="card">
-      <h2>Abstract</h2>
-<div class="abstract-box">
-  <p>
-  Machine learning methods for astronomical object classification in large sky surveys are studied using data from the Legacy Survey of Space and Time (LSST), the wide-field survey of the Vera C. Rubin Observatory.    Modern astronomical datasets present significant challenges for machine learning due to their scale, calibration and instrumental systematics, noisy measurements, observational biases, and high-dimensional feature spaces.   To address these challenges, a provenance-aware extension to the DAG-based data abstraction layer underlying the Rubin Observatory LSST pipeline system is developed.   The framework introduces a lineage-aware machine learning pipeline that tracks data transformations including cross-matching, labeling, data cleaning, normalization, and feature extraction across machine learning workflows.    The schema-based graph representation enables reproducible workflows and transparent data lineage tracking.     Using the LSST Data Preview 1 (DP1) release, which provides early survey data suitable for developing and evaluating machine learning methods, galaxies from the 3D-HST Hubble Space Telescope survey in the Chandra Deep Field South (CDFS) are cross-matched with LSST sources to construct a labeled dataset.  Deep-field cross-survey datasets provide high-quality labels that enable development and evaluation of machine learning methods for wide-area survey data.  The resulting dataset integrates photometric measurements and image cutouts with star formation rate (SFR) estimates for galaxies from the 3D-HST catalog.   Machine learning models combining image and photometric features are trained to evaluate the predictive capability of LSST observations.  A hybrid ensemble architecture integrates convolutional neural networks applied to image data with tree-based models trained on photometric features.  Performance is assessed using supervised and unsupervised methods, including dimensionality reduction and clustering analyses of the learned feature space.   These analyses evaluate the ability of models to infer galaxy properties from LSST data, using star formation rate as a case study, and demonstrate the utility of provenance-aware machine learning pipelines for large-scale astronomical surveys.   
-  </p>
-</div>
-      <!--<div id="overview"></div>-->
+            <section class="card">
+                <h2>Abstract</h2>
+                <div class="abstract-box">
+                    <p>
+                    Machine learning methods for astronomical object classification in large sky surveys are studied using data from the Legacy Survey of Space and Time (LSST), the wide-field survey of the Vera C. Rubin Observatory.    Modern astronomical datasets present significant challenges for machine learning due to their scale, calibration and instrumental systematics, noisy measurements, observational biases, and high-dimensional feature spaces.   To address these challenges, a provenance-aware extension to the DAG-based data abstraction layer underlying the Rubin Observatory LSST pipeline system is developed.   The framework introduces a lineage-aware machine learning pipeline that tracks data transformations including cross-matching, labeling, data cleaning, normalization, and feature extraction across machine learning workflows.    The schema-based graph representation enables reproducible workflows and transparent data lineage tracking.     Using the LSST Data Preview 1 (DP1) release, which provides early survey data suitable for developing and evaluating machine learning methods, galaxies from the 3D-HST Hubble Space Telescope survey in the Chandra Deep Field South (CDFS) are cross-matched with LSST sources to construct a labeled dataset.  Deep-field cross-survey datasets provide high-quality labels that enable development and evaluation of machine learning methods for wide-area survey data.  The resulting dataset integrates photometric measurements and image cutouts with star formation rate (SFR) estimates for galaxies from the 3D-HST catalog.   Machine learning models combining image and photometric features are trained to evaluate the predictive capability of LSST observations.  A hybrid ensemble architecture integrates convolutional neural networks applied to image data with tree-based models trained on photometric features.  Performance is assessed using supervised and unsupervised methods, including dimensionality reduction and clustering analyses of the learned feature space.   These analyses evaluate the ability of models to infer galaxy properties from LSST data, using star formation rate as a case study, and demonstrate the utility of provenance-aware machine learning pipelines for large-scale astronomical surveys.   
+                    </p>
+                </div>
 
-      <br />
-      <p>
-        <em>Author:</em> David Sergio<br />
-        <em>Advisor:</em> Dr. Chris Cain<br />
-        <em>Institution:</em> Eastern Washington University<br />
-        <em>Contact:</em> <a href="mailto:dsergio@ewu.edu">dsergio@ewu.edu</a><br />
-    </section>
+                <h2>DAG YAML Schema</h2>
+                <div class="abstract-box">
+                    <pre>
+nodes:
+- node_id: 4bd430bc
+  parents: []
+  node_type: catalog_hst
+  parameters:
+    max_records: 300000
+  inputs: []
+  outputs:
+  - name: catalog_hst
+    file_path: _pipelines/4bd430bc/catalog_hst/3c125143.fits
+    columns:
+      ra: Right Ascension
+      dec: Declination
+      jh_mag: J-H color
+      z_spec: Spectroscopic redshift
+      z_peak_phot: Photometric redshift (peak)
+      z_peak_grism: Grism redshift (peak)
+      z_best: Best redshift
+      lmass: Log Stellar Mass
+      Av: Visual Extinction
+      beta: UV slope
+      chi2: Chi-squared of SED fit
+      log10_L_IR: log10 L_IR
+      log10_sfr: log10 sfr
+      log10_sfr_IR: log10 sfr_IR
+      log10_sfr_UV: log10 sfr_UV
+  type: HSTNodeCatalog
+- node_id: 11820ae7
+  parents:
+  - 4bd430bc
+  node_type: catalog_hst_clean
+  parameters:
+    max_records: 300000
+  inputs:
+  - name: catalog_hst
+    file_path: _pipelines/4bd430bc/catalog_hst/3c125143.fits
+    columns:
+      ra: Right Ascension
+      dec: Declination
+      jh_mag: J-H color
+      z_spec: Spectroscopic redshift
+      z_peak_phot: Photometric redshift (peak)
+      z_peak_grism: Grism redshift (peak)
+      z_best: Best redshift
+      lmass: Log Stellar Mass
+      Av: Visual Extinction
+      beta: UV slope
+      chi2: Chi-squared of SED fit
+      log10_L_IR: log10 L_IR
+      log10_sfr: log10 sfr
+      log10_sfr_IR: log10 sfr_IR
+      log10_sfr_UV: log10 sfr_UV
+  outputs:
+  - name: catalog_hst_clean
+    file_path: _pipelines/11820ae7/catalog_hst_clean/dafa44bf.fits
+    columns:
+      ra: Right Ascension
+      dec: Declination
+      jh_mag: J-H color
+      z_spec: Spectroscopic redshift
+      z_peak_phot: Photometric redshift (peak)
+      z_peak_grism: Grism redshift (peak)
+      z_best: Best redshift
+      lmass: Log Stellar Mass
+      Av: Visual Extinction
+      beta: UV slope
+      chi2: Chi-squared of SED fit
+      log10_L_IR: log10 L_IR
+      log10_sfr: log10 sfr
+      log10_sfr_IR: log10 sfr_IR
+      log10_sfr_UV: log10 sfr_UV
+  type: HSTNodeClean
+- node_id: eed603bc
+  parents:
+  - 11820ae7
+  node_type: catalog_hst_select
+  parameters:
+    max_records: 300000
+  inputs:
+  - name: catalog_hst_clean
+    file_path: _pipelines/11820ae7/catalog_hst_clean/dafa44bf.fits
+    columns:
+      ra: Right Ascension
+      dec: Declination
+      jh_mag: J-H color
+      z_spec: Spectroscopic redshift
+      z_peak_phot: Photometric redshift (peak)
+      z_peak_grism: Grism redshift (peak)
+      z_best: Best redshift
+      lmass: Log Stellar Mass
+      Av: Visual Extinction
+      beta: UV slope
+      chi2: Chi-squared of SED fit
+      log10_L_IR: log10 L_IR
+      log10_sfr: log10 sfr
+      log10_sfr_IR: log10 sfr_IR
+      log10_sfr_UV: log10 sfr_UV
+  outputs:
+  - name: catalog_hst_select
+    file_path: _pipelines/eed603bc/catalog_hst_select/09429ba7.fits
+    columns:
+      ra: Right Ascension
+      dec: Declination
+      jh_mag: J-H color
+      z_spec: Spectroscopic redshift
+      z_peak_phot: Photometric redshift (peak)
+      z_peak_grism: Grism redshift (peak)
+      z_best: Best redshift
+      lmass: Log Stellar Mass
+      Av: Visual Extinction
+      beta: UV slope
+      chi2: Chi-squared of SED fit
+      log10_L_IR: log10 L_IR
+      log10_sfr: log10 sfr
+      log10_sfr_IR: log10 sfr_IR
+      log10_sfr_UV: log10 sfr_UV
+  type: HSTNodeSelect
+- node_id: '73961934'
+  parents: []
+  node_type: catalog_lsst
+  parameters:
+    max_records: 10
+    query_coords:
+      type: SkyCoord
+      frame: icrs
+      ra_deg: 53.1167
+      dec_deg: -27.8083
+    query_radius:
+      type: Quantity
+      value: 10.0
+      unit: arcmin
+  inputs: []
+  outputs:
+  - name: catalog_lsst
+    file_path: _pipelines/73961934/catalog_lsst/14be0890.fits
+    columns:
+      tract: tract
+      patch: patch
+      coord_ra: coord_ra
+      coord_dec: coord_dec
+      detect_fromBlend: detect_fromBlend
+      detect_isIsolated: detect_isIsolated
+      u_psfFlux: u_psfFlux
+      u_psfFluxErr: u_psfFluxErr
+      u_psfFlux_flag: u_psfFlux_flag
+      u_free_cModelFlux: u_free_cModelFlux
+      u_free_cModelFluxErr: u_free_cModelFluxErr
+      u_free_cModelFlux_flag: u_free_cModelFlux_flag
+      g_psfFlux: g_psfFlux
+      g_psfFluxErr: g_psfFluxErr
+      g_psfFlux_flag: g_psfFlux_flag
+      g_free_cModelFlux: g_free_cModelFlux
+      g_free_cModelFluxErr: g_free_cModelFluxErr
+      g_free_cModelFlux_flag: g_free_cModelFlux_flag
+      r_psfFlux: r_psfFlux
+      r_psfFluxErr: r_psfFluxErr
+      r_psfFlux_flag: r_psfFlux_flag
+      r_free_cModelFlux: r_free_cModelFlux
+      r_free_cModelFluxErr: r_free_cModelFluxErr
+      r_free_cModelFlux_flag: r_free_cModelFlux_flag
+      i_psfFlux: i_psfFlux
+      i_psfFluxErr: i_psfFluxErr
+      i_psfFlux_flag: i_psfFlux_flag
+      i_free_cModelFlux: i_free_cModelFlux
+      i_free_cModelFluxErr: i_free_cModelFluxErr
+      i_free_cModelFlux_flag: i_free_cModelFlux_flag
+      z_psfFlux: z_psfFlux
+      z_psfFluxErr: z_psfFluxErr
+      z_psfFlux_flag: z_psfFlux_flag
+      z_free_cModelFlux: z_free_cModelFlux
+      z_free_cModelFluxErr: z_free_cModelFluxErr
+      z_free_cModelFlux_flag: z_free_cModelFlux_flag
+      y_psfFlux: y_psfFlux
+      y_psfFluxErr: y_psfFluxErr
+      y_psfFlux_flag: y_psfFlux_flag
+      y_free_cModelFlux: y_free_cModelFlux
+      y_free_cModelFluxErr: y_free_cModelFluxErr
+      y_free_cModelFlux_flag: y_free_cModelFlux_flag
+      refExtendedness: refExtendedness
+  type: LSSTNodeCatalog
+- node_id: 2237353e
+  parents:
+  - '73961934'
+  - eed603bc
+  node_type: catalog_lsst_match_hst
+  parameters:
+    max_records: 10
+  inputs:
+  - name: catalog_lsst
+    file_path: _pipelines/73961934/catalog_lsst/14be0890.fits
+    columns:
+      tract: tract
+      patch: patch
+      coord_ra: coord_ra
+      coord_dec: coord_dec
+      detect_fromBlend: detect_fromBlend
+      detect_isIsolated: detect_isIsolated
+      u_psfFlux: u_psfFlux
+      u_psfFluxErr: u_psfFluxErr
+      u_psfFlux_flag: u_psfFlux_flag
+      u_free_cModelFlux: u_free_cModelFlux
+      u_free_cModelFluxErr: u_free_cModelFluxErr
+      u_free_cModelFlux_flag: u_free_cModelFlux_flag
+      g_psfFlux: g_psfFlux
+      g_psfFluxErr: g_psfFluxErr
+      g_psfFlux_flag: g_psfFlux_flag
+      g_free_cModelFlux: g_free_cModelFlux
+      g_free_cModelFluxErr: g_free_cModelFluxErr
+      g_free_cModelFlux_flag: g_free_cModelFlux_flag
+      r_psfFlux: r_psfFlux
+      r_psfFluxErr: r_psfFluxErr
+      r_psfFlux_flag: r_psfFlux_flag
+      r_free_cModelFlux: r_free_cModelFlux
+      r_free_cModelFluxErr: r_free_cModelFluxErr
+      r_free_cModelFlux_flag: r_free_cModelFlux_flag
+      i_psfFlux: i_psfFlux
+      i_psfFluxErr: i_psfFluxErr
+      i_psfFlux_flag: i_psfFlux_flag
+      i_free_cModelFlux: i_free_cModelFlux
+      i_free_cModelFluxErr: i_free_cModelFluxErr
+      i_free_cModelFlux_flag: i_free_cModelFlux_flag
+      z_psfFlux: z_psfFlux
+      z_psfFluxErr: z_psfFluxErr
+      z_psfFlux_flag: z_psfFlux_flag
+      z_free_cModelFlux: z_free_cModelFlux
+      z_free_cModelFluxErr: z_free_cModelFluxErr
+      z_free_cModelFlux_flag: z_free_cModelFlux_flag
+      y_psfFlux: y_psfFlux
+      y_psfFluxErr: y_psfFluxErr
+      y_psfFlux_flag: y_psfFlux_flag
+      y_free_cModelFlux: y_free_cModelFlux
+      y_free_cModelFluxErr: y_free_cModelFluxErr
+      y_free_cModelFlux_flag: y_free_cModelFlux_flag
+      refExtendedness: refExtendedness
+  - name: catalog_hst_select
+    file_path: _pipelines/eed603bc/catalog_hst_select/09429ba7.fits
+    columns:
+      ra: Right Ascension
+      dec: Declination
+      jh_mag: J-H color
+      z_spec: Spectroscopic redshift
+      z_peak_phot: Photometric redshift (peak)
+      z_peak_grism: Grism redshift (peak)
+      z_best: Best redshift
+      lmass: Log Stellar Mass
+      Av: Visual Extinction
+      beta: UV slope
+      chi2: Chi-squared of SED fit
+      log10_L_IR: log10 L_IR
+      log10_sfr: log10 sfr
+      log10_sfr_IR: log10 sfr_IR
+      log10_sfr_UV: log10 sfr_UV
+  outputs:
+  - name: catalog_lsst_match_hst
+    file_path: _pipelines/2237353e/catalog_lsst_match_hst/420bbc5b.fits
+    columns: null
+  type: LSSTNodeMatchToHST
+- node_id: 632c6635
+  parents:
+  - 2237353e
+  node_type: catalog_lsst_preprocess
+  parameters:
+    max_records: 10
+  inputs:
+  - name: catalog_lsst_match_hst
+    file_path: _pipelines/2237353e/catalog_lsst_match_hst/420bbc5b.fits
+    columns: null
+  outputs:
+  - name: catalog_lsst_preprocess
+    file_path: _pipelines/632c6635/catalog_lsst_preprocess/b253f5c4.fits
+    columns:
+      ra: ra
+      dec: dec
+      tract: tract
+      patch: patch
+      detect_fromBlend: detect_fromBlend
+      detect_isIsolated: detect_isIsolated
+      refExtendedness: refExtendedness
+      label: label
+      color_gr: color_gr
+      color_ri: color_ri
+      color_iz: color_iz
+      u_psfFlux_arcsinh: u_psfFlux_arcsinh
+      u_psfFluxErr_arcsinh: u_psfFluxErr_arcsinh
+      u_psfFlux_SNR_log: u_psfFlux_SNR_log
+      u_psfFlux_mag: u_psfFlux_mag
+      u_psfFlux_bad_flag: u_psfFlux_bad_flag
+      g_psfFlux_arcsinh: g_psfFlux_arcsinh
+      g_psfFluxErr_arcsinh: g_psfFluxErr_arcsinh
+      g_psfFlux_SNR_log: g_psfFlux_SNR_log
+      g_psfFlux_mag: g_psfFlux_mag
+      g_psfFlux_bad_flag: g_psfFlux_bad_flag
+      r_psfFlux_arcsinh: r_psfFlux_arcsinh
+      r_psfFluxErr_arcsinh: r_psfFluxErr_arcsinh
+      r_psfFlux_SNR_log: r_psfFlux_SNR_log
+      r_psfFlux_mag: r_psfFlux_mag
+      r_psfFlux_bad_flag: r_psfFlux_bad_flag
+      i_psfFlux_arcsinh: i_psfFlux_arcsinh
+      i_psfFluxErr_arcsinh: i_psfFluxErr_arcsinh
+      i_psfFlux_SNR_log: i_psfFlux_SNR_log
+      i_psfFlux_mag: i_psfFlux_mag
+      i_psfFlux_bad_flag: i_psfFlux_bad_flag
+      z_psfFlux_arcsinh: z_psfFlux_arcsinh
+      z_psfFluxErr_arcsinh: z_psfFluxErr_arcsinh
+      z_psfFlux_SNR_log: z_psfFlux_SNR_log
+      z_psfFlux_mag: z_psfFlux_mag
+      z_psfFlux_bad_flag: z_psfFlux_bad_flag
+      y_psfFlux_arcsinh: y_psfFlux_arcsinh
+      y_psfFluxErr_arcsinh: y_psfFluxErr_arcsinh
+      y_psfFlux_SNR_log: y_psfFlux_SNR_log
+      y_psfFlux_mag: y_psfFlux_mag
+      y_psfFlux_bad_flag: y_psfFlux_bad_flag
+      color_ug: color_ug
+      color_ur: color_ur
+      color_ui: color_ui
+      color_uz: color_uz
+      color_uy: color_uy
+      color_gi: color_gi
+      color_gz: color_gz
+      color_gy: color_gy
+      color_rz: color_rz
+      color_ry: color_ry
+      color_iy: color_iy
+      color_zy: color_zy
+      curvature_ug_gr: curvature_ug_gr
+      curvature_gr_ri: curvature_gr_ri
+      curvature_ri_iz: curvature_ri_iz
+      curvature_iz_zy: curvature_iz_zy
+  type: LSSTNodePreprocess
+- node_id: 72559c7b
+  parents:
+  - 632c6635
+  node_type: catalog_lsst_photo_dataset
+  parameters:
+    dataset:
+      dataset_dir: /home/dsergio/pipelines/data/0414-1
+      num_objects: 0
+      num_classes: 2
+      manifest_file: /home/dsergio/pipelines/data/0414-1/manifest.csv
+      labels:
+        labels:
+          S:
+            label_index: 0
+            short_name: S
+            long_name: Star Forming
+          Q:
+            label_index: 1
+            short_name: Q
+            long_name: Quiescent
+        unknown_label_index: 31
+        labels_dir: /home/dsergio/pipelines/data/0414-1
+  inputs:
+  - name: catalog_lsst_preprocess
+    file_path: _pipelines/632c6635/catalog_lsst_preprocess/b253f5c4.fits
+    columns:
+      ra: ra
+      dec: dec
+      tract: tract
+      patch: patch
+      detect_fromBlend: detect_fromBlend
+      detect_isIsolated: detect_isIsolated
+      refExtendedness: refExtendedness
+      label: label
+      color_gr: color_gr
+      color_ri: color_ri
+      color_iz: color_iz
+      u_psfFlux_arcsinh: u_psfFlux_arcsinh
+      u_psfFluxErr_arcsinh: u_psfFluxErr_arcsinh
+      u_psfFlux_SNR_log: u_psfFlux_SNR_log
+      u_psfFlux_mag: u_psfFlux_mag
+      u_psfFlux_bad_flag: u_psfFlux_bad_flag
+      g_psfFlux_arcsinh: g_psfFlux_arcsinh
+      g_psfFluxErr_arcsinh: g_psfFluxErr_arcsinh
+      g_psfFlux_SNR_log: g_psfFlux_SNR_log
+      g_psfFlux_mag: g_psfFlux_mag
+      g_psfFlux_bad_flag: g_psfFlux_bad_flag
+      r_psfFlux_arcsinh: r_psfFlux_arcsinh
+      r_psfFluxErr_arcsinh: r_psfFluxErr_arcsinh
+      r_psfFlux_SNR_log: r_psfFlux_SNR_log
+      r_psfFlux_mag: r_psfFlux_mag
+      r_psfFlux_bad_flag: r_psfFlux_bad_flag
+      i_psfFlux_arcsinh: i_psfFlux_arcsinh
+      i_psfFluxErr_arcsinh: i_psfFluxErr_arcsinh
+      i_psfFlux_SNR_log: i_psfFlux_SNR_log
+      i_psfFlux_mag: i_psfFlux_mag
+      i_psfFlux_bad_flag: i_psfFlux_bad_flag
+      z_psfFlux_arcsinh: z_psfFlux_arcsinh
+      z_psfFluxErr_arcsinh: z_psfFluxErr_arcsinh
+      z_psfFlux_SNR_log: z_psfFlux_SNR_log
+      z_psfFlux_mag: z_psfFlux_mag
+      z_psfFlux_bad_flag: z_psfFlux_bad_flag
+      y_psfFlux_arcsinh: y_psfFlux_arcsinh
+      y_psfFluxErr_arcsinh: y_psfFluxErr_arcsinh
+      y_psfFlux_SNR_log: y_psfFlux_SNR_log
+      y_psfFlux_mag: y_psfFlux_mag
+      y_psfFlux_bad_flag: y_psfFlux_bad_flag
+      color_ug: color_ug
+      color_ur: color_ur
+      color_ui: color_ui
+      color_uz: color_uz
+      color_uy: color_uy
+      color_gi: color_gi
+      color_gz: color_gz
+      color_gy: color_gy
+      color_rz: color_rz
+      color_ry: color_ry
+      color_iy: color_iy
+      color_zy: color_zy
+      curvature_ug_gr: curvature_ug_gr
+      curvature_gr_ri: curvature_gr_ri
+      curvature_ri_iz: curvature_ri_iz
+      curvature_iz_zy: curvature_iz_zy
+  outputs:
+  - name: catalog_lsst_photo_dataset
+    file_path: _pipelines/72559c7b/catalog_lsst_photo_dataset/fe598012.fits
+    columns: null
+  type: LSSTNodePhotoDataset
+- node_id: 6365e60e
+  parents:
+  - 72559c7b
+  node_type: catalog_lsst_butler_fetch
+  parameters:
+    dataset:
+      dataset_dir: /home/dsergio/pipelines/data/0414-1
+      num_objects: 0
+      num_classes: 2
+      manifest_file: /home/dsergio/pipelines/data/0414-1/manifest.csv
+      labels:
+        labels:
+          S:
+            label_index: 0
+            short_name: S
+            long_name: Star Forming
+          Q:
+            label_index: 1
+            short_name: Q
+            long_name: Quiescent
+        unknown_label_index: 31
+        labels_dir: /home/dsergio/pipelines/data/0414-1
+  inputs:
+  - name: catalog_lsst_photo_dataset
+    file_path: _pipelines/72559c7b/catalog_lsst_photo_dataset/fe598012.fits
+    columns: null
+  outputs: []
+  type: LSSTNodeButlerFetch
+                    <code>
+                </div>
+                <!--<div id="overview"></div>-->
 
-  </main>
+                <br />
+                <p>
+                <em>Author:</em> David Sergio<br />
+                <em>Advisor:</em> Dr. Chris Cain<br />
+                <em>Institution:</em> Eastern Washington University<br />
+                <em>Contact:</em> <a href="mailto:dsergio@ewu.edu">dsergio@ewu.edu</a><br />
+            </section>
 
-  <script src="app.js"></script>
-  <script>
-    loadOverview();
-  </script>
-</body>
+        </main>
+
+        <script src="app.js"></script>
+        <script>
+            loadOverview();
+        </script>
+    </body>
 </html>
