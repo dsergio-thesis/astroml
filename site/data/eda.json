@@ -1,9 +1,9 @@
 {
-  "num_exported_samples": 10,
+  "num_exported_samples": 100,
   "dataset_length": 17080,
   "label_counts": {
-    "0": 9,
-    "1": 1
+    "Star-forming": 91,
+    "Quiescent": 9
   },
   "width": {
     "min": null,

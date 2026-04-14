@@ -7,32 +7,73 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="site-header">
-    <h1>Dataset Demo</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="eda.html">EDA</a>
-      <a href="gallery.html">Gallery</a>
-    </nav>
-  </header>
+<header class="site-header">
+  <div class="title-group">
+    <h1>Dataset Explorer</h1>
+    <p class="subtitle">
+      Provenance-Aware Machine Learning Pipelines for Large Astronomical Surveys
+    </p>
+  </div>
 
-  <main class="container">
-    <section class="card">
-      <h2>Overview</h2>
-      <p>Static demo site generated from a PyTorch dataset.</p>
-      <div id="overview"></div>
-    </section>
+  <button class="menu-toggle" aria-label="Open navigation menu" aria-expanded="false">
+    &#9776;
+  </button>
+
+  <nav class="site-nav">
+    <a href="index.html">Home</a>
+    <a href="lsst_eda.html">LSST Summary</a>
+    <a href="lsst_gallery.html">LSST Gallery</a>
+    <a href="hst_eda.html">HST Summary</a>
+  </nav>
+</header>
+
+<script>
+  const toggle = document.querySelector(".menu-toggle");
+  const nav = document.querySelector(".site-nav");
+
+  toggle.addEventListener("click", () => {
+    nav.classList.toggle("open");
+    const expanded = nav.classList.contains("open");
+    toggle.setAttribute("aria-expanded", expanded);
+  });
+</script>  
+
+<main class="container">
 
     <section class="grid-2">
-      <a class="card link-card" href="eda.html">
-        <h3>EDA</h3>
-        <p>Summary stats and exported plots.</p>
+      <a class="card link-card" href="lsst_eda.html">
+        <h3>LSST Dataset</h3>
+        <p>View summary stats and exploratory data analysis for the Legacy Survey of Space and Time (LSST).</p>
       </a>
-      <a class="card link-card" href="gallery.html">
-        <h3>Gallery</h3>
-        <p>Browse exported samples with filters.</p>
+      <a class="card link-card" href="lsst_gallery.html">
+        <h3>LSST Gallery</h3>
+        <p>Browse samples.</p>
+      </a>
+
+      <a class="card link-card" href="hst_eda.html">
+        <h3>HST Dataset</h3>
+        <p>View summary stats and exploratory data analysis for the 3D-HST Hubble Space Telescope survey.</p>
       </a>
     </section>
+
+
+    <section class="card">
+      <h2>Abstract</h2>
+<div class="abstract-box">
+  <p>
+  Machine learning methods for astronomical object classification in large sky surveys are studied using data from the Legacy Survey of Space and Time (LSST), the wide-field survey of the Vera C. Rubin Observatory.    Modern astronomical datasets present significant challenges for machine learning due to their scale, calibration and instrumental systematics, noisy measurements, observational biases, and high-dimensional feature spaces.   To address these challenges, a provenance-aware extension to the DAG-based data abstraction layer underlying the Rubin Observatory LSST pipeline system is developed.   The framework introduces a lineage-aware machine learning pipeline that tracks data transformations including cross-matching, labeling, data cleaning, normalization, and feature extraction across machine learning workflows.    The schema-based graph representation enables reproducible workflows and transparent data lineage tracking.     Using the LSST Data Preview 1 (DP1) release, which provides early survey data suitable for developing and evaluating machine learning methods, galaxies from the 3D-HST Hubble Space Telescope survey in the Chandra Deep Field South (CDFS) are cross-matched with LSST sources to construct a labeled dataset.  Deep-field cross-survey datasets provide high-quality labels that enable development and evaluation of machine learning methods for wide-area survey data.  The resulting dataset integrates photometric measurements and image cutouts with star formation rate (SFR) estimates for galaxies from the 3D-HST catalog.   Machine learning models combining image and photometric features are trained to evaluate the predictive capability of LSST observations.  A hybrid ensemble architecture integrates convolutional neural networks applied to image data with tree-based models trained on photometric features.  Performance is assessed using supervised and unsupervised methods, including dimensionality reduction and clustering analyses of the learned feature space.   These analyses evaluate the ability of models to infer galaxy properties from LSST data, using star formation rate as a case study, and demonstrate the utility of provenance-aware machine learning pipelines for large-scale astronomical surveys.   
+  </p>
+</div>
+      <!--<div id="overview"></div>-->
+
+      <br />
+      <p>
+        <em>Author:</em> David Sergio<br />
+        <em>Advisor:</em> Dr. Chris Cain<br />
+        <em>Institution:</em> Eastern Washington University<br />
+        <em>Contact:</em> <a href="mailto:dsergio@ewu.edu">dsergio@ewu.edu</a><br />
+    </section>
+
   </main>
 
   <script src="app.js"></script>

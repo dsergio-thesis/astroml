@@ -22,8 +22,6 @@ async function loadOverview() {
     overview.innerHTML = `
     <p><strong>Dataset length:</strong> ${eda.dataset_length}</p>
     <p><strong>Exported samples:</strong> ${eda.num_exported_samples}</p>
-    <p><strong>Width mean:</strong> ${eda.width.mean?.toFixed(2)}</p>
-    <p><strong>Height mean:</strong> ${eda.height.mean?.toFixed(2)}</p>
   `;
 }
 
@@ -37,10 +35,7 @@ async function loadEDA() {
             .join("");
 
         summary.innerHTML = `
-      <p><strong>Dataset length:</strong> ${eda.dataset_length}</p>
-      <p><strong>Exported samples:</strong> ${eda.num_exported_samples}</p>
-      <p><strong>Width:</strong> min ${eda.width.min}, max ${eda.width.max}, mean ${eda.width.mean?.toFixed(2)}</p>
-      <p><strong>Height:</strong> min ${eda.height.min}, max ${eda.height.max}, mean ${eda.height.mean?.toFixed(2)}</p>
+      <p><strong>Dataset size:</strong> ${eda.dataset_length} (${eda.num_exported_samples} sampled)</p>
       <h3>Label counts</h3>
       <ul>${labelItems}</ul>
     `;
@@ -61,6 +56,9 @@ async function loadGallery() {
 
     if (!grid || !labelFilter || !metaSearch) return;
 
+    const ITEMS_PER_PAGE = 5;
+    let currentPage = 1;
+
     const labels = [...new Set(samples.map(s => s.label))].sort();
     for (const label of labels) {
         const option = document.createElement("option");
@@ -69,20 +67,65 @@ async function loadGallery() {
         labelFilter.appendChild(option);
     }
 
-    function render() {
+    let pagination = document.getElementById("gallery-pagination");
+    if (!pagination) {
+        pagination = el("div", "gallery-pagination");
+        pagination.id = "gallery-pagination";
+        grid.parentNode.appendChild(pagination);
+    }
+
+    function getFilteredSamples() {
         const selectedLabel = labelFilter.value.trim();
         const search = metaSearch.value.trim().toLowerCase();
 
-        const filtered = samples.filter(sample => {
+        return samples.filter(sample => {
             const labelOk = !selectedLabel || sample.label === selectedLabel;
             const metaText = JSON.stringify(sample.meta).toLowerCase();
             const searchOk = !search || metaText.includes(search);
             return labelOk && searchOk;
         });
+    }
+
+    function renderPagination(totalItems) {
+        const totalPages = Math.max(1, Math.ceil(totalItems / ITEMS_PER_PAGE));
+        currentPage = Math.min(currentPage, totalPages);
+
+        pagination.innerHTML = "";
+
+        const prevBtn = el("button", "page-btn", "Previous");
+        prevBtn.disabled = currentPage === 1;
+        prevBtn.addEventListener("click", () => {
+            currentPage--;
+            render();
+        });
+
+        const pageInfo = el("span", "page-info", `Page ${currentPage} of ${totalPages}`);
+
+        const nextBtn = el("button", "page-btn", "Next");
+        nextBtn.disabled = currentPage === totalPages;
+        nextBtn.addEventListener("click", () => {
+            currentPage++;
+            render();
+        });
+
+        pagination.appendChild(prevBtn);
+        pagination.appendChild(pageInfo);
+        pagination.appendChild(nextBtn);
+    }
+
+    function render() {
+        const filtered = getFilteredSamples();
+
+        const totalPages = Math.max(1, Math.ceil(filtered.length / ITEMS_PER_PAGE));
+        if (currentPage > totalPages) currentPage = totalPages;
+
+        const start = (currentPage - 1) * ITEMS_PER_PAGE;
+        const end = start + ITEMS_PER_PAGE;
+        const pageSamples = filtered.slice(start, end);
 
         grid.innerHTML = "";
 
-        for (const sample of filtered) {
+        for (const sample of pageSamples) {
             const item = el("div", "gallery-item");
 
             const link = document.createElement("a");
@@ -109,21 +152,26 @@ async function loadGallery() {
             meta.innerHTML = `
                 <div><strong>Dataset index:</strong> ${sample.dataset_index}</div>
                 <div><strong>Label:</strong> ${sample.label}</div>
-                <div><strong>Size:</strong> ${sample.width} × ${sample.height}</div>
             `;
 
             item.appendChild(link);
             item.appendChild(meta);
             grid.appendChild(item);
         }
+
+        renderPagination(filtered.length);
     }
 
-    labelFilter.addEventListener("change", render);
-    metaSearch.addEventListener("input", render);
+    function resetAndRender() {
+        currentPage = 1;
+        render();
+    }
+
+    labelFilter.addEventListener("change", resetAndRender);
+    metaSearch.addEventListener("input", resetAndRender);
 
     render();
 }
-
 async function loadSamplePage() {
     const view = document.getElementById("sample-view");
     const prevBtn = document.getElementById("prev-btn");
