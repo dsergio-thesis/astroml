@@ -129,7 +129,7 @@ async function loadGallery() {
             const item = el("div", "gallery-item");
 
             const link = document.createElement("a");
-            link.href = `sample.html?id=${sample.id}`;
+            link.href = "#"; // `sample.html?id=${sample.id}`;
             link.className = "sample-link";
 
             const bandRow = el("div", "band-row");
@@ -192,9 +192,6 @@ async function loadSamplePage() {
       <p><strong>ID:</strong> ${sample.id}</p>
       <p><strong>Dataset index:</strong> ${sample.dataset_index}</p>
       <p><strong>Label:</strong> ${sample.label}</p>
-      <p><strong>Size:</strong> ${sample.width} × ${sample.height}</p>
-      <h3>Metadata</h3>
-      <pre class="meta-block">${JSON.stringify(sample.meta, null, 2)}</pre>
     `;
 
         const url = new URL(window.location.href);
